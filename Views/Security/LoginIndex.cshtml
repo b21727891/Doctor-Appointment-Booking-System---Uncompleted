@@ -1,0 +1,43 @@
+﻿@model DoctorAppointmentBookingSys.Models.Classes.User
+@using System.Web.Mvc;
+
+@{
+    ViewBag.Message = "Invalid user. User Name or Password is incorrect.";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <script src="//maxcdn.bootsrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Login Form</h2>
+                        @using (Html.BeginForm("LoginIndex", "Security", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                @Html.TextBoxFor(p => p.UserName, new { @class = "form control", PlaceHolder = "User Name" })
+                                
+                            </div>
+                            <div class="form-group">
+                                @Html.PasswordFor(p => p.UserPass, new { @class = "form-control", PlaceHolder = "Password" })
+          
+                            </div>
+                            <button id="sendlogin" class="btn-primary">login</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
